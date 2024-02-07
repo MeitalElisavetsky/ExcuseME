@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excuseme-wa-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: excuseme-wa
+  template:
+    metadata:
+      labels:
+        app: excuseme-wa
+    spec:
+      containers:
+      - name: excuseme-wa
+        image: excuseregistry.azurecr.io/excuseme:latest
+        ports:
+        - containerPort: 80
